@@ -12,7 +12,7 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS (Awwwards Light Typography + DuckDuckGo Clean Utility)
+       1. DESIGN TOKENS (White, Orange, Black — Zero Blue)
        ========================================================================== */
     :root {
       --bg-white: #FFFFFF;
@@ -21,7 +21,6 @@
       --text-black: #111111;
       --text-muted: #666666;
       --accent-orange: #DE5833;
-      --accent-blue: #0F294A;
       --border-hairline: rgba(17, 17, 17, 0.1);
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -59,7 +58,7 @@
     }
 
     /* ==========================================================================
-       2. HEADER (Single-Word Black Brand on White Background -> Hover Orange)
+       2. HEADER (Single-Word Black Brand -> Hover Orange)
        ========================================================================== */
     header {
       position: fixed;
@@ -76,7 +75,6 @@
       align-items: center;
     }
 
-    /* STRICT BRAND RULE: Single word, Black letters, White bg, Hover Orange */
     .brand-logo {
       background-color: #FFFFFF;
       color: #000000;
@@ -142,14 +140,14 @@
     }
 
     .btn-orange:hover {
-      background: var(--accent-blue);
-      border-color: var(--accent-blue);
+      background: var(--text-black);
+      border-color: var(--text-black);
     }
 
     .btn-outline {
       background: transparent;
-      color: var(--accent-blue);
-      border: 1px solid var(--accent-blue);
+      color: var(--text-black);
+      border: 1px solid var(--text-black);
       padding: 9px 20px;
       border-radius: 999px;
       font-size: 0.82rem;
@@ -159,19 +157,19 @@
     }
 
     .btn-outline:hover {
-      background: var(--accent-blue);
+      background: var(--text-black);
       color: #FFFFFF;
     }
 
     /* ==========================================================================
-       3. FULL-SCREEN KINETIC EDITORIAL HERO (No 3D Cube — Pure Editorial Motion)
+       3. EDITORIAL HERO (Brand Name Removed From Hero Display Area)
        ========================================================================== */
     .hero-editorial {
       position: relative;
-      min-height: 92vh;
+      min-height: 88vh;
       background: var(--bg-white);
       border-bottom: 1px solid var(--border-hairline);
-      padding: 124px 5% 64px;
+      padding: 130px 5% 64px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -182,8 +180,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(to right, rgba(15, 41, 74, 0.045) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 41, 74, 0.045) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
       background-size: 72px 72px;
       pointer-events: none;
       transition: transform 0.25s ease-out;
@@ -205,55 +203,30 @@
     .hero-display-block {
       position: relative;
       z-index: 2;
-      max-width: 1280px;
+      max-width: 1100px;
       margin: auto 0;
-      transition: transform 0.25s ease-out;
     }
 
-    /* Giant Single-Word Brand Display */
-    .hero-wordmark {
-      font-size: clamp(3.8rem, 11vw, 9.5rem);
+    .hero-display-block h1 {
+      font-size: clamp(2.4rem, 5.2vw, 4.4rem);
       font-weight: 200;
-      letter-spacing: -0.05em;
-      line-height: 0.95;
-      color: #000000;
-      background: #FFFFFF;
-      display: inline-block;
-      padding-right: 16px;
-      margin-bottom: 28px;
-      cursor: pointer;
-      transition: color 0.35s var(--ease-out-expo);
-    }
-
-    .hero-wordmark:hover {
-      color: var(--accent-orange);
-    }
-
-    .hero-bottom-split {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 48px;
-      align-items: end;
-    }
-
-    .hero-bottom-split h1 {
-      font-size: clamp(1.9rem, 3.6vw, 3.1rem);
-      font-weight: 200;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+      letter-spacing: -0.04em;
+      line-height: 1.12;
       color: var(--text-black);
+      margin-bottom: 24px;
     }
 
-    .hero-bottom-split h1 span {
+    .hero-display-block h1 span {
       color: var(--accent-orange);
       font-weight: 300;
     }
 
-    .hero-right-copy p {
-      font-size: 1rem;
+    .hero-display-block p {
+      font-size: 1.1rem;
       font-weight: 300;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      max-width: 680px;
+      margin-bottom: 36px;
     }
 
     .hero-footer-strip {
@@ -270,14 +243,14 @@
     }
 
     /* ==========================================================================
-       4. AWWWARDS SHOWCASE BAR (Score, Palette, Typography & Tech Stack)
+       4. AWWWARDS FEATURE BAR
        ========================================================================== */
     .awwwards-bar {
       background: var(--bg-canvas);
       border-bottom: 1px solid var(--border-hairline);
       padding: 28px 5%;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       align-items: center;
     }
@@ -297,131 +270,157 @@
       font-weight: 300;
     }
 
-    .palette-swatches {
-      display: flex;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .swatch {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 0, 0, 0.14);
-    }
-
     /* ==========================================================================
-       5. DUCKDUCKGO-STYLE AI RESPONSIVE SEARCH ENGINE
+       5. FEATURE 1: "Discover more with EzAssign" (DuckDuckGo Reference Style)
        ========================================================================== */
-    .search-section {
+    .discover-section {
       background: var(--bg-white);
-      padding: 80px 5% 68px;
+      padding: 96px 5%;
+      text-align: center;
       border-bottom: 1px solid var(--border-hairline);
     }
 
-    .search-inner {
-      max-width: 840px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .search-inner h2 {
-      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    .discover-section h2 {
+      font-size: clamp(2.2rem, 4.2vw, 3.5rem);
       font-weight: 200;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 48px;
     }
 
-    .ai-search-form {
-      display: flex;
-      align-items: center;
-      background: var(--bg-canvas);
-      border: 1.5px solid var(--text-black);
-      border-radius: 999px;
-      padding: 7px 8px 7px 24px;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s var(--ease-out-expo);
+    .discover-pills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .ai-search-form:focus-within {
-      border-color: var(--accent-orange);
-      background: #FFFFFF;
-      box-shadow: 0 18px 44px rgba(222, 88, 51, 0.12);
-    }
-
-    .ai-search-form input {
-      flex: 1;
-      border: none;
-      outline: none;
-      background: transparent;
-      font-family: var(--font-sans);
-      font-size: 0.98rem;
-      font-weight: 300;
-      color: var(--text-black);
-    }
-
-    .ai-search-form button {
-      background: var(--accent-orange);
-      color: #FFFFFF;
-      border: none;
-      border-radius: 999px;
-      padding: 12px 26px;
-      font-size: 0.85rem;
-      font-weight: 400;
-      transition: background 0.25s ease;
-    }
-
-    .ai-search-form button:hover {
-      background: var(--accent-blue);
-    }
-
-    .quick-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .q-tag {
+    .discover-card {
       background: var(--bg-canvas);
       border: 1px solid var(--border-hairline);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: var(--text-muted);
-      transition: all 0.2s ease;
-    }
-
-    .q-tag:hover {
-      border-color: var(--accent-orange);
-      color: var(--accent-orange);
-    }
-
-    .ai-answer-card {
-      display: none;
-      margin-top: 24px;
-      background: var(--bg-canvas);
-      border: 1px solid var(--accent-blue);
       border-radius: 20px;
-      padding: 28px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s var(--ease-out-expo);
       text-align: left;
-      box-shadow: 0 20px 50px rgba(15, 41, 74, 0.08);
     }
 
-    .ai-answer-card.visible {
-      display: block;
-      animation: slideUp 0.35s var(--ease-out-expo);
+    .discover-card:hover {
+      border-color: var(--accent-orange);
+      transform: translateY(-3px);
+      background: #FFFFFF;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
     }
 
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .disc-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .disc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+    }
+
+    .disc-title {
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .disc-plus {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.05);
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .discover-card:hover .disc-plus {
+      background: var(--accent-orange);
+      color: #FFFFFF;
     }
 
     /* ==========================================================================
-       6. FIVE DELIVERABLE SERVICE BUTTONS (Opens Dedicated >250-Word Pages)
+       6. FEATURE 2: DuckDuckGo-Style Sky Blue Replacement Graphic Banner
+       ========================================================================== */
+    .feature-banner-section {
+      background: var(--bg-canvas);
+      padding: 96px 5%;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .feature-banner-box {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: 32px;
+      padding: 64px 48px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.04);
+    }
+
+    .feature-banner-content h3 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .feature-banner-content p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .feature-buttons-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .feature-visual-mock {
+      background: var(--bg-dark);
+      border-radius: 20px;
+      padding: 36px;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-visual-mock h4 {
+      font-size: 1.3rem;
+      font-weight: 200;
+      margin-bottom: 10px;
+    }
+
+    .feature-visual-mock p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      opacity: 0.7;
+    }
+
+    /* ==========================================================================
+       7. FIVE DELIVERABLE SERVICE BUTTONS
        ========================================================================== */
     .services-section {
       max-width: 1320px;
@@ -467,13 +466,13 @@
       background: #FFFFFF;
       border-color: var(--accent-orange);
       transform: translateY(-4px);
-      box-shadow: 0 18px 38px rgba(15, 41, 74, 0.07);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.07);
     }
 
     .service-tile .idx {
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      color: var(--accent-blue);
+      color: var(--text-black);
     }
 
     .service-tile h3 {
@@ -497,7 +496,7 @@
     }
 
     /* ==========================================================================
-       7. ARCHITECTURAL BENTO GRID (Writing vs. 1:1 Guidance + Institutional Info)
+       8. ARCHITECTURAL BENTO GRID
        ========================================================================== */
     .bento-section {
       max-width: 1320px;
@@ -541,11 +540,6 @@
       border-color: var(--accent-orange);
     }
 
-    .bento-card.blue {
-      background: var(--accent-blue);
-      color: #FFFFFF;
-    }
-
     .col-6 { grid-column: span 6; }
     .col-4 { grid-column: span 4; }
 
@@ -581,57 +575,88 @@
     }
 
     /* ==========================================================================
-       8. DUCKDUCKGO COMPARISON TABLE & INTERACTIVE FAQ ACCORDION
+       9. FEATURE 3: Professional & Aesthetic Reviews (DuckDuckGo Reference Style)
        ========================================================================== */
-    .comparison-section {
-      background: var(--bg-canvas);
+    .reviews-section {
+      background: var(--bg-white);
+      padding: 96px 5%;
       border-top: 1px solid var(--border-hairline);
       border-bottom: 1px solid var(--border-hairline);
-      padding: 80px 5%;
     }
 
-    .comparison-inner {
-      max-width: 1040px;
+    .reviews-inner {
+      max-width: 1320px;
       margin: 0 auto;
     }
 
-    .comparison-table {
-      width: 100%;
-      background: #FFFFFF;
-      border-radius: 20px;
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .reviews-header h2 {
+      font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+      font-weight: 200;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .review-card {
+      background: var(--bg-canvas);
       border: 1px solid var(--border-hairline);
-      border-collapse: collapse;
-      overflow: hidden;
-      margin-top: 32px;
+      border-radius: 24px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s var(--ease-out-expo);
     }
 
-    .comparison-table th, .comparison-table td {
-      padding: 18px 24px;
-      text-align: left;
-      font-size: 0.9rem;
-      border-bottom: 1px solid var(--border-hairline);
+    .review-card:hover {
+      border-color: var(--accent-orange);
+      transform: translateY(-4px);
+      background: #FFFFFF;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.06);
     }
 
-    .comparison-table th {
-      background: var(--bg-dark);
-      color: #FFFFFF;
+    .review-card p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text-black);
+      margin-bottom: 24px;
+    }
+
+    .reviewer-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
       font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      color: var(--text-muted);
     }
 
-    .comparison-table td:nth-child(2) {
-      color: var(--accent-orange);
-      font-weight: 500;
-      background: rgba(222, 88, 51, 0.03);
+    .reviews-cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
+    /* ==========================================================================
+       10. FAQ ACCORDION (Expanded Questions)
+       ========================================================================== */
     .faq-section {
       max-width: 920px;
       margin: 0 auto;
-      padding: 80px 5%;
+      padding: 96px 5%;
     }
 
     .faq-item {
@@ -670,7 +695,7 @@
     }
 
     /* ==========================================================================
-       9. DEDICATED SUB-PAGE VIEWER (>250 Words Each)
+       11. DEDICATED SUB-PAGE VIEWER (>250 Words Each)
        ========================================================================== */
     .subpage-view {
       display: none;
@@ -735,7 +760,7 @@
       font-size: 1.45rem;
       font-weight: 300;
       letter-spacing: -0.02em;
-      color: var(--accent-blue);
+      color: var(--text-black);
       margin: 30px 0 12px;
     }
 
@@ -804,7 +829,7 @@
     }
 
     /* ==========================================================================
-       10. FOOTER
+       12. FOOTER
        ========================================================================== */
     footer {
       background: var(--bg-dark);
@@ -859,10 +884,10 @@
     }
 
     @media (max-width: 1024px) {
-      .hero-bottom-split, .subpage-grid, .footer-grid { grid-template-columns: 1fr; }
+      .discover-pills-grid, .reviews-grid, .feature-banner-box, .subpage-grid, .footer-grid { grid-template-columns: 1fr; }
       .services-grid-5 { grid-template-columns: repeat(2, 1fr); }
       .col-6, .col-4 { grid-column: span 12; }
-      .awwwards-bar { grid-template-columns: repeat(2, 1fr); }
+      .awwwards-bar { grid-template-columns: 1fr; gap: 16px; }
       .nav-links { display: none; }
     }
   </style>
@@ -894,7 +919,7 @@
        ======================================================================== -->
   <main id="home-view">
 
-    <!-- FULL-SCREEN KINETIC EDITORIAL HERO (3D Index Removed) -->
+    <!-- HERO (Brand Name Removed From Hero Display Area) -->
     <section class="hero-editorial" id="heroStage">
       <div class="editorial-grid-bg" id="gridBg"></div>
 
@@ -904,26 +929,20 @@
       </div>
 
       <div class="hero-display-block" id="heroDisplay">
-        <div class="hero-wordmark" onclick="navigateTo('home')">EzAssign</div>
-
-        <div class="hero-bottom-split">
-          <h1>
-            Academic precision built on <span>structured execution</span> and 1:1 clarity.
-          </h1>
-          <div class="hero-right-copy">
-            <p>
-              End-to-end custom assignment writing and personalized one-on-one student mentorship across Diploma, Undergraduate, Postgraduate, and PhD levels—tailored around your exact university rubric.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-              <button class="btn-orange" onclick="navigateTo('writing')">Explore Custom Writing</button>
-              <button class="btn-outline" onclick="navigateTo('guidance')">Explore 1:1 Guidance</button>
-            </div>
-          </div>
+        <h1>
+          Academic precision built on <span>structured execution</span> and 1:1 clarity.
+        </h1>
+        <p>
+          End-to-end custom assignment writing and personalized one-on-one student mentorship across Diploma, Undergraduate, Postgraduate, and PhD levels—tailored around your exact university rubric.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <button class="btn-orange" onclick="navigateTo('writing')">Explore Custom Writing</button>
+          <button class="btn-outline" onclick="navigateTo('guidance')">Explore 1:1 Guidance</button>
         </div>
       </div>
 
       <div class="hero-footer-strip">
-        <span>EZASSIGN LLP // VERIFIED HIGHER-EDUCATION SUPPORT</span>
+        <span>VERIFIED HIGHER-EDUCATION SUPPORT</span>
         <span style="color: var(--accent-orange);">SCROLL DOWN TO EXPLORE &darr;</span>
         <span>HARVARD &bull; APA &bull; IEEE &bull; OSCOLA</span>
       </div>
@@ -940,61 +959,50 @@
         <div class="val" style="color: var(--accent-orange);">9.4 / 10.0</div>
       </div>
       <div class="aw-item">
-        <label>Official Color System</label>
-        <div class="palette-swatches">
-          <div class="swatch" style="background: #DE5833;" title="Orange"></div>
-          <div class="swatch" style="background: #0F294A;" title="Blue"></div>
-          <div class="swatch" style="background: #FFFFFF;" title="White"></div>
-          <div class="swatch" style="background: #111111;" title="Black"></div>
-        </div>
-      </div>
-      <div class="aw-item">
         <label>Academic Standards</label>
         <div class="val" style="font-family: var(--font-mono); font-size: 0.85rem;">UK QAA &amp; Global Rubrics</div>
       </div>
     </section>
 
-    <!-- DUCKDUCKGO-STYLE AI RESPONSIVE SEARCH -->
-    <section class="search-section">
-      <div class="search-inner">
-        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; margin-bottom: 10px;">
-          Zero-Tracking AI Academic Query Assistant
-        </span>
-        <h2>Ask anything about your assignment, dissertation, or guidance</h2>
-
-        <form class="ai-search-form" onsubmit="handleAiSearch(event)">
-          <input
-            type="text"
-            id="aiInput"
-            placeholder="e.g., How do you handle MATLAB simulations, UK dissertation SPSS, or 1:1 mentorship?"
-            required
-          />
-          <button type="submit">Ask EzAssign AI</button>
-        </form>
-
-        <div class="quick-tags">
-          <button type="button" class="q-tag" onclick="runAiQuery('MATLAB & Engineering Simulations')">MATLAB &amp; Engineering</button>
-          <button type="button" class="q-tag" onclick="runAiQuery('Nursing & Clinical Case Studies')">Nursing &amp; Healthcare</button>
-          <button type="button" class="q-tag" onclick="runAiQuery('UK Dissertation & SPSS Analysis')">UK Dissertation &amp; SPSS</button>
-          <button type="button" class="q-tag" onclick="runAiQuery('1:1 Personalized Mentorship')">1:1 Guidance</button>
-          <button type="button" class="q-tag" onclick="runAiQuery('Revisions & Money-Back Guarantee')">Revisions &amp; Guarantee</button>
-        </div>
-
-        <div class="ai-answer-card" id="aiResultBox">
-          <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-orange); text-transform: uppercase; margin-bottom: 10px;">
-            <span id="aiTag">EZASSIGN INSTANT ANSWER</span>
-            <span>CONFIDENTIAL &amp; PRIVATE</span>
+    <!-- FEATURE 1: "Discover more with EzAssign" (4 Button Pills with Icons) -->
+    <section class="discover-section">
+      <h2>Discover more with EzAssign.</h2>
+      <div class="discover-pills-grid">
+        <a href="https://www.instagram.com/ezassign" target="_blank" class="discover-card">
+          <div class="disc-info">
+            <div class="disc-icon">📸</div>
+            <div class="disc-title">Instagram</div>
           </div>
-          <div id="aiText" style="font-size: 0.98rem; font-weight: 300; margin-bottom: 20px;"></div>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a id="aiWaBtn" href="https://wa.me/919256466594" target="_blank" class="btn-orange">Contact Us on WhatsApp (+91-9256466594)</a>
-            <button type="button" id="aiPageBtn" class="btn-back" onclick="navigateTo('assignment')">Open Full Page Details</button>
+          <div class="disc-plus">+</div>
+        </a>
+
+        <a href="https://wa.me/919256466594?text=Hello%20EzAssign" target="_blank" class="discover-card">
+          <div class="disc-info">
+            <div class="disc-icon">💬</div>
+            <div class="disc-title">WhatsApp</div>
           </div>
-        </div>
+          <div class="disc-plus">+</div>
+        </a>
+
+        <a href="mailto:ezassign@icloud.com" class="discover-card">
+          <div class="disc-info">
+            <div class="disc-icon">✉️</div>
+            <div class="disc-title">Email Us</div>
+          </div>
+          <div class="disc-plus">+</div>
+        </a>
+
+        <a href="https://www.ezassign.blog" target="_blank" class="discover-card">
+          <div class="disc-info">
+            <div class="disc-icon">📝</div>
+            <div class="disc-title">Official Blog</div>
+          </div>
+          <div class="disc-plus">+</div>
+        </a>
       </div>
     </section>
 
-    <!-- 5 DELIVERABLE BUTTONS (Each Opens a Dedicated >250-Word Page) -->
+    <!-- 5 DELIVERABLE BUTTONS -->
     <section class="services-section">
       <div class="section-heading-bar">
         <h2>Core Deliverable Services</h2>
@@ -1049,7 +1057,27 @@
       </div>
     </section>
 
-    <!-- ARCHITECTURAL BENTO GRID (Separating Custom Writing vs. 1:1 Guidance) -->
+    <!-- FEATURE 2: DuckDuckGo-Style Sky Blue Replacement Banner with YouTube & LinkedIn -->
+    <section class="feature-banner-section">
+      <div class="feature-banner-box">
+        <div class="feature-banner-content">
+          <h3>Global Academic Insights &amp; Professional Community.</h3>
+          <p>
+            Explore our verified video walkthroughs, academic webinars, and professional networking channels to stay ahead of university deadlines and grading standards.
+          </p>
+          <div class="feature-buttons-row">
+            <a href="https://linktr.ee/EzAssignGlobal" target="_blank" class="btn-orange">YouTube Channel</a>
+            <a href="https://www.linkedin.com/company/ezassign/" target="_blank" class="btn-outline">LinkedIn Network</a>
+          </div>
+        </div>
+        <div class="feature-visual-mock">
+          <h4>EzAssign Global Hub</h4>
+          <p>Connecting thousands of university students worldwide with verified experts, direct 1:1 guidance, and flawless academic execution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL BENTO GRID -->
     <section class="bento-section">
       <div class="section-heading-bar">
         <h2>Institutional Pillars &amp; Domains</h2>
@@ -1090,7 +1118,7 @@
           <span class="bento-link">Explore All Subjects &rarr;</span>
         </div>
 
-        <div class="bento-card blue col-4" onclick="navigateTo('levels')">
+        <div class="bento-card col-4" onclick="navigateTo('levels')">
           <div>
             <span class="bento-tag">HIGHER EDUCATION</span>
             <h3>Diploma to PhD &amp; UK Standards</h3>
@@ -1114,64 +1142,47 @@
       </div>
     </section>
 
-    <!-- DUCKDUCKGO COMPARISON MATRIX -->
-    <section class="comparison-section">
-      <div class="comparison-inner">
-        <div style="text-align: center;">
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.1em;">
-            Side-by-Side Academic Standards
+    <!-- FEATURE 3: Professional & Aesthetic Reviews (DuckDuckGo Reference Style) -->
+    <section class="reviews-section">
+      <div class="reviews-inner">
+        <div class="reviews-header">
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; margin-bottom: 8px;">
+            Verified Student Testimonials
           </span>
-          <h2 style="font-size: 2.2rem; font-weight: 200; letter-spacing: -0.03em; margin-top: 8px;">
-            See how EzAssign compares
-          </h2>
+          <h2>Don’t just take our word for it.</h2>
         </div>
 
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Feature / Student Protection</th>
-              <th>EzAssign Global</th>
-              <th>Generic Essay Mills</th>
-              <th>Unvetted Bidding Sites</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Separate 1:1 Personalized Guidance</strong></td>
-              <td>Included (Dedicated Mentorship)</td>
-              <td>Not offered</td>
-              <td>Rare / Extra fees</td>
-            </tr>
-            <tr>
-              <td><strong>Ground-Up Rubric Alignment</strong></td>
-              <td>Built from scratch per brief</td>
-              <td>Recycled templates</td>
-              <td>Inconsistent quality</td>
-            </tr>
-            <tr>
-              <td><strong>Technical Software (MATLAB, SPSS, R, Python)</strong></td>
-              <td>Full simulation &amp; code walkthroughs</td>
-              <td>Text-only essays</td>
-              <td>Hit or miss</td>
-            </tr>
-            <tr>
-              <td><strong>Unlimited Post-Delivery Revisions</strong></td>
-              <td>Yes, until 100% aligned</td>
-              <td>24–48 hour cap</td>
-              <td>Extra charges apply</td>
-            </tr>
-            <tr>
-              <td><strong>Direct WhatsApp Desk</strong></td>
-              <td>+91-9256466594</td>
-              <td>Automated bots only</td>
-              <td>Delayed messaging</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <p>“EzAssign helped me structure my UK Master's dissertation chapters and SPSS data analysis flawlessly. The 1:1 guidance gave me complete confidence during my viva.”</p>
+            <div class="reviewer-meta">
+              <span>Postgraduate Student, London</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <p>“The MATLAB simulations and engineering report were delivered ahead of schedule with immaculate referencing and clear annotations. Absolutely a lifesaver!”</p>
+            <div class="reviewer-meta">
+              <span>Undergraduate Engineering Student</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <p>“Direct WhatsApp communication made everything so smooth. Whenever I needed minor revisions or clarifications, the coordination team responded immediately.”</p>
+            <div class="reviewer-meta">
+              <span>Nursing &amp; Healthcare Student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews-cta-row">
+          <a href="https://linktr.ee/EzAssignGlobal" target="_blank" class="btn-orange">View Trustpilot Reviews</a>
+          <a href="https://wa.me/919256466594?text=Hello%20EzAssign%2C%20I%20would%20like%20to%20see%20student%20reviews." target="_blank" class="btn-outline">WhatsApp Review Page</a>
+        </div>
       </div>
     </section>
 
-    <!-- DUCKDUCKGO STYLE INTERACTIVE FAQ -->
+    <!-- FAQ ACCORDION (Expanded Questions) -->
     <section class="faq-section">
       <h2 style="font-size: 2.1rem; font-weight: 200; letter-spacing: -0.03em; margin-bottom: 24px;">
         Frequently Asked Questions
@@ -1206,17 +1217,37 @@
           Every deliverable comes with unlimited post-delivery revisions and corrections at no extra cost until the work aligns completely with your brief and feedback, backed by a transparent money-back guarantee.
         </div>
       </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What academic referencing styles do you support?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Our specialists are fully fluent in all major institutional citation formats, including Harvard, APA, MLA, IEEE, OSCOLA, and Vancouver, strictly matching your department's guidelines.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How can I communicate with my assigned specialist or coordinator?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          You can reach our dedicated academic coordination desk 24/7 directly via our official WhatsApp Business line (+91-9256466594) or through email at ezassign@icloud.com for immediate updates and support.
+        </div>
+      </div>
     </section>
 
   </main>
 
   <!-- ========================================================================
-       DEDICATED SUB-PAGE VIEWER (>250 Words Per Single Option)
+       DEDICATED SUB-PAGE VIEWER (>250 Words Each)
        ======================================================================== -->
   <section id="subpage-container" class="subpage-view">
     <div class="back-bar">
-      <button class="btn-back" onclick="navigateTo('home')">&larr; Back to EzAssign Overview</button>
-      <span id="subpage-crumb" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">EZASSIGN // DEDICATED PAGE</span>
+      <button class="btn-back" onclick="navigateTo('home')">&larr; Back to Overview</button>
+      <span id="subpage-crumb" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">DEDICATED PAGE</span>
     </div>
 
     <div class="subpage-header">
@@ -1290,10 +1321,9 @@
   </footer>
 
   <!-- ========================================================================
-       CLEAN KINETIC MOTION, MULTI-PAGE ROUTER & AI SEARCH SCRIPT
+       SCRIPTS
        ======================================================================== -->
   <script>
-    /* Smooth 2D Editorial Parallax on Cursor Move */
     const heroStage = document.getElementById('heroStage');
     const gridBg = document.getElementById('gridBg');
     const heroDisplay = document.getElementById('heroDisplay');
@@ -1311,17 +1341,15 @@
       });
     }
 
-    /* FAQ Accordion */
     function toggleFaq(btn) {
       const item = btn.parentElement;
       item.classList.toggle('open');
       btn.querySelector('span:last-child').textContent = item.classList.contains('open') ? '−' : '+';
     }
 
-    /* Dedicated Pages Repository (>250 Words Each) */
     const PAGES = {
       assignment: {
-        crumb: "EZASSIGN // ASSIGNMENT SOLUTIONS",
+        crumb: "ASSIGNMENT SOLUTIONS",
         tag: "SERVICE 01 // CUSTOM COURSEWORK EXECUTION",
         title: "Assignment Solutions Built Around Your Exact University Rubric",
         lead: "End-to-end academic assignment drafting and structured technical execution across Diploma, Undergraduate, Postgraduate, and PhD curricula—tailored strictly to your institutional guidelines.",
@@ -1343,7 +1371,7 @@
         `
       },
       dissertation: {
-        crumb: "EZASSIGN // DISSERTATION SUPPORT",
+        crumb: "DISSERTATION SUPPORT",
         tag: "SERVICE 02 // DOCTORAL & POSTGRADUATE RESEARCH",
         title: "Dissertation & Thesis Support From Proposal to Final Defense",
         lead: "Comprehensive research design, systematic literature reviews, quantitative and qualitative data modeling (SPSS, R, Python, NVivo), and complete chapter execution for Master's and PhD candidates.",
@@ -1365,7 +1393,7 @@
         `
       },
       presentation: {
-        crumb: "EZASSIGN // ACADEMIC PRESENTATIONS",
+        crumb: "ACADEMIC PRESENTATIONS",
         tag: "SERVICE 03 // VISUAL ACADEMIC COMMUNICATION",
         title: "Academic Presentations, Pitch Decks & Clinical Briefings",
         lead: "High-impact visual slide decks paired with comprehensive speaker scripts, data visualizations, and structured academic talking points ready for live or recorded assessment.",
@@ -1387,7 +1415,7 @@
         `
       },
       casestudy: {
-        crumb: "EZASSIGN // CASE STUDY ANALYSIS",
+        crumb: "CASE STUDY ANALYSIS",
         tag: "SERVICE 04 // APPLIED DIAGNOSTIC ANALYSIS",
         title: "In-Depth Case Study Analysis Across Business, Law, Engineering & Healthcare",
         lead: "Evidence-based diagnostic evaluations applying established theoretical frameworks to real-world corporate, legal, technical, and clinical patient scenarios.",
@@ -1409,7 +1437,7 @@
         `
       },
       quizlearning: {
-        crumb: "EZASSIGN // QUIZ & LEARNING",
+        crumb: "QUIZ & LEARNING",
         tag: "SERVICE 05 // CONCEPT MASTERY & EXAM READINESS",
         title: "Quiz Preparation, Structured Learning & 1:1 Analytical Coaching",
         lead: "Focused one-on-one concept breakdowns, worked problem sets, and structured learning sessions designed to help you master difficult modules and technical tools.",
@@ -1431,7 +1459,7 @@
         `
       },
       writing: {
-        crumb: "EZASSIGN // CUSTOM WRITING",
+        crumb: "CUSTOM WRITING",
         tag: "PILLAR 01 // CUSTOM ASSIGNMENT WRITING",
         title: "Custom Assignment Writing & Technical Execution",
         lead: "Complete, research-backed academic drafting and technical problem-solving crafted from scratch around your exact university brief, learning outcomes, and citation standards.",
@@ -1453,7 +1481,7 @@
         `
       },
       guidance: {
-        crumb: "EZASSIGN // 1:1 GUIDANCE",
+        crumb: "1:1 GUIDANCE",
         tag: "PILLAR 02 // 1:1 PERSONALIZED GUIDANCE",
         title: "1:1 Personalized Guidance & Academic Mentorship",
         lead: "Direct one-on-one coaching to help you deconstruct complex assignment briefs, structure research methodologies, decode grading rubrics, and master technical tools independently.",
@@ -1475,7 +1503,7 @@
         `
       },
       subjects: {
-        crumb: "EZASSIGN // SUBJECTS & DOMAINS",
+        crumb: "SUBJECTS & DOMAINS",
         tag: "ACADEMIC COVERAGE // MULTI-DISCIPLINARY EXPERTISE",
         title: "Subjects & Academic Domains Covered by EzAssign",
         lead: "Comprehensive specialist support spanning Humanities, Cloud & AI Engineering, MATLAB Modeling, Clinical Healthcare & Nursing, Business, Law, and Doctoral Research.",
@@ -1496,7 +1524,7 @@
         `
       },
       levels: {
-        crumb: "EZASSIGN // ACADEMIC LEVELS",
+        crumb: "ACADEMIC LEVELS",
         tag: "HIGHER EDUCATION // GLOBAL & UK FOOTPRINT",
         title: "Academic Levels Served & United Kingdom University Focus",
         lead: "Dedicated academic guidance and assignment solutions across Diploma, Undergraduate, Postgraduate, and Doctoral qualifications—with our strongest footprint across the United Kingdom.",
@@ -1516,7 +1544,7 @@
         `
       },
       standards: {
-        crumb: "EZASSIGN // QUALITY & GUARANTEES",
+        crumb: "QUALITY & GUARANTEES",
         tag: "TRACK RECORD & POLICIES // STUDENT-FIRST GUARANTEES",
         title: "Quality Assurance, Unlimited Revisions & Money-Back Guarantee",
         lead: "Operated by EzAssign LLP with over 7 years of experience and 8,000+ students served—backed by strict quality benchmarks, unlimited edits, and transparent student protection policies.",
@@ -1538,7 +1566,6 @@
       }
     };
 
-    /* Multi-Page Navigation */
     function navigateTo(key) {
       const homeView = document.getElementById('home-view');
       const subContainer = document.getElementById('subpage-container');
@@ -1561,72 +1588,6 @@
       homeView.style.display = 'none';
       subContainer.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    /* AI Search Assistant */
-    function runAiQuery(txt) {
-      document.getElementById('aiInput').value = txt;
-      processAi(txt);
-    }
-
-    function handleAiSearch(e) {
-      e.preventDefault();
-      const val = document.getElementById('aiInput').value.trim();
-      if (val) processAi(val);
-    }
-
-    function processAi(qText) {
-      const q = qText.toLowerCase();
-      const box = document.getElementById('aiResultBox');
-      const tagEl = document.getElementById('aiTag');
-      const textEl = document.getElementById('aiText');
-      const waBtn = document.getElementById('aiWaBtn');
-      const pageBtn = document.getElementById('aiPageBtn');
-
-      let tag = "EZASSIGN AI // ACADEMIC GUIDANCE & EXECUTION";
-      let ans = "";
-      let target = "assignment";
-      let pLabel = "Open Assignment Solutions";
-
-      if (q.includes("matlab") || q.includes("engineering") || q.includes("code") || q.includes("python")) {
-        tag = "TECHNICAL ENGINEERING // MATLAB & DATA";
-        ans = "EzAssign handles complex technical engineering coursework, including MATLAB simulations, cloud architectures, and Python/R scripts. We offer both complete technical execution and 1:1 step-by-step code walkthroughs.";
-        target = "subjects";
-        pLabel = "View Engineering Domains";
-      } else if (q.includes("nursing") || q.includes("medical") || q.includes("health") || q.includes("clinical")) {
-        tag = "HEALTHCARE & CLINICAL PROTOCOLS";
-        ans = "Our healthcare specialists prepare evidence-based nursing care plans, public health policy briefs, pharmacology evaluations, and specialized clinical case studies—including complex surgical and transplant protocols.";
-        target = "casestudy";
-        pLabel = "Open Clinical Case Study Guide";
-      } else if (q.includes("dissertation") || q.includes("thesis") || q.includes("phd") || q.includes("spss")) {
-        tag = "POSTGRADUATE & DOCTORAL DISSERTATION DESK";
-        ans = "EzAssign supports every dissertation stage from research proposals and literature reviews to SPSS/R data analysis and full PhD chapters with unlimited supervisor revision support.";
-        target = "dissertation";
-        pLabel = "Open Dissertation Page";
-      } else if (q.includes("1:1") || q.includes("guidance") || q.includes("mentor") || q.includes("coach")) {
-        tag = "1:1 PERSONALIZED GUIDANCE";
-        ans = "Our 1:1 Personalized Guidance connects you directly with a domain specialist who breaks down your assignment brief, grading rubric, and research structure so you build genuine mastery.";
-        target = "guidance";
-        pLabel = "Open 1:1 Guidance Workflow";
-      } else if (q.includes("guarantee") || q.includes("revision") || q.includes("refund") || q.includes("uk")) {
-        tag = "QUALITY ASSURANCE & STUDENT POLICIES";
-        ans = "With 7+ years of experience and 8,000+ students served (primarily in UK universities), EzAssign backs every project with strict rubric alignment, unlimited revisions, and a money-back guarantee.";
-        target = "standards";
-        pLabel = "Read Quality & Guarantee Policies";
-      } else {
-        tag = "CUSTOM ACADEMIC EXECUTION";
-        ans = `For "${qText}", EzAssign provides custom assignment writing (in Harvard, APA, IEEE, etc.) and 1:1 personalized mentorship across all higher-education levels with complete confidentiality.`;
-        target = "writing";
-        pLabel = "Explore Custom Writing";
-      }
-
-      tagEl.textContent = tag;
-      textEl.textContent = ans;
-      waBtn.href = `https://wa.me/919256466594?text=${encodeURIComponent("Hello EzAssign, I searched about: " + qText)}`;
-      pageBtn.textContent = pLabel;
-      pageBtn.onclick = () => navigateTo(target);
-
-      box.classList.add('visible');
     }
   </script>
 </body>
