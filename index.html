@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EzAssign // Precision Academic Guidance & Assignment Solutions</title>
+  <title>EzAssign — Precision Academic Guidance & Assignment Solutions</title>
 
   <!-- Ultra-Light Editorial & Technical Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS (Awwwards x DuckDuckGo x EzAssign)
+       1. DESIGN TOKENS (Awwwards Light Typography + DuckDuckGo Clean Utility)
        ========================================================================== */
     :root {
       --bg-white: #FFFFFF;
@@ -59,7 +59,7 @@
     }
 
     /* ==========================================================================
-       2. HEADER (Awwwards Style Utility Bar + Single-Word Brand)
+       2. HEADER (Single-Word Black Brand on White Background -> Hover Orange)
        ========================================================================== */
     header {
       position: fixed;
@@ -67,22 +67,22 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-hairline);
-      padding: 16px 4%;
+      padding: 16px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    /* Strict Brand Rule: Single word, black letters, white bg, hover orange */
+    /* STRICT BRAND RULE: Single word, Black letters, White bg, Hover Orange */
     .brand-logo {
       background-color: #FFFFFF;
       color: #000000;
       font-family: var(--font-sans);
       font-weight: 500;
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       letter-spacing: -0.04em;
       padding: 4px 10px;
       transition: color 0.3s var(--ease-out-expo);
@@ -95,7 +95,7 @@
 
     .nav-links {
       display: flex;
-      gap: 26px;
+      gap: 28px;
       font-size: 0.85rem;
       font-weight: 300;
       color: var(--text-muted);
@@ -115,19 +115,16 @@
       gap: 12px;
     }
 
-    .awwwards-badge-mini {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .awwwards-pill {
       font-family: var(--font-mono);
       font-size: 0.7rem;
       background: #141414;
-      color: #fff;
+      color: #FFFFFF;
       padding: 6px 12px;
       border-radius: 999px;
     }
 
-    .awwwards-badge-mini span {
+    .awwwards-pill span {
       color: var(--accent-orange);
       font-weight: 500;
     }
@@ -136,11 +133,12 @@
       background: var(--accent-orange);
       color: #FFFFFF;
       border: 1px solid var(--accent-orange);
-      padding: 8px 18px;
+      padding: 9px 20px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 400;
       transition: all 0.3s var(--ease-out-expo);
+      display: inline-block;
     }
 
     .btn-orange:hover {
@@ -148,270 +146,244 @@
       border-color: var(--accent-blue);
     }
 
+    .btn-outline {
+      background: transparent;
+      color: var(--accent-blue);
+      border: 1px solid var(--accent-blue);
+      padding: 9px 20px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 400;
+      transition: all 0.3s var(--ease-out-expo);
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-blue);
+      color: #FFFFFF;
+    }
+
     /* ==========================================================================
-       3. FULL-SCREEN IMMERSIVE 3D SPATIAL HERO (Santal Reference Style)
+       3. FULL-SCREEN KINETIC EDITORIAL HERO (No 3D Cube — Pure Editorial Motion)
        ========================================================================== */
-    .hero-fullscreen-3d {
+    .hero-editorial {
       position: relative;
-      width: 100vw;
-      height: 100vh;
-      background: var(--bg-dark);
-      color: #FFFFFF;
+      min-height: 92vh;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 124px 5% 64px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 100px 6% 48px;
       overflow: hidden;
-      perspective: 1400px;
     }
 
-    .hero-grid-3d {
+    .editorial-grid-bg {
       position: absolute;
-      inset: -50%;
+      inset: 0;
       background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 80px 80px;
-      transform: rotateX(60deg) rotateZ(0deg);
-      transform-style: preserve-3d;
-      transition: transform 0.1s cubic-bezier(0.08, 0.82, 0.17, 1);
+        linear-gradient(to right, rgba(15, 41, 74, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 41, 74, 0.045) 1px, transparent 1px);
+      background-size: 72px 72px;
       pointer-events: none;
+      transition: transform 0.25s ease-out;
     }
 
-    .hero-top-info {
+    .hero-meta-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.55);
-      z-index: 2;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .hero-center-stage {
-      position: relative;
-      z-index: 2;
-      max-width: 1100px;
-      margin: auto 0;
-      transform-style: preserve-3d;
-      transition: transform 0.2s cubic-bezier(0.08, 0.82, 0.17, 1);
-    }
-
-    .hero-center-stage h1 {
-      font-size: clamp(2.8rem, 7.5vw, 6.5rem);
-      font-weight: 200;
-      letter-spacing: -0.04em;
-      line-height: 1.02;
-      margin-bottom: 24px;
-      color: #FFFFFF;
-    }
-
-    .hero-center-stage h1 span {
-      color: var(--accent-orange);
-      font-weight: 300;
-    }
-
-    .hero-center-stage p {
-      font-size: 1.15rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.72);
-      max-width: 640px;
-      margin-bottom: 36px;
-    }
-
-    /* Interactive 3D Cube Floating in Full Screen */
-    .hero-cube-container {
-      position: absolute;
-      right: 5%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 240px;
-      height: 240px;
-      transform-style: preserve-3d;
-      animation: rotateCubeScene 20s infinite linear;
-      z-index: 2;
-    }
-
-    @keyframes rotateCubeScene {
-      0% { transform: translateY(-50%) rotateX(-20deg) rotateY(0deg); }
-      100% { transform: translateY(-50%) rotateX(-20deg) rotateY(360deg); }
-    }
-
-    .cube-f {
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      border: 1px solid rgba(222, 88, 51, 0.35);
-      background: rgba(15, 41, 74, 0.45);
-      backdrop-filter: blur(6px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      font-weight: 200;
-      font-size: 1.1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .cube-f small {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--accent-orange);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 8px;
-    }
-
-    .cf-front  { transform: rotateY(0deg) translateZ(120px); }
-    .cf-back   { transform: rotateY(180deg) translateZ(120px); }
-    .cf-right  { transform: rotateY(90deg) translateZ(120px); }
-    .cf-left   { transform: rotateY(-90deg) translateZ(120px); }
-    .cf-top    { transform: rotateX(90deg) translateZ(120px); }
-    .cf-bottom { transform: rotateX(-90deg) translateZ(120px); }
-
-    .hero-bottom-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2;
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.6);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 20px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: relative;
+      z-index: 2;
     }
 
-    .scroll-down-hint {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .hero-display-block {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: auto 0;
+      transition: transform 0.25s ease-out;
+    }
+
+    /* Giant Single-Word Brand Display */
+    .hero-wordmark {
+      font-size: clamp(3.8rem, 11vw, 9.5rem);
+      font-weight: 200;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+      color: #000000;
+      background: #FFFFFF;
+      display: inline-block;
+      padding-right: 16px;
+      margin-bottom: 28px;
+      cursor: pointer;
+      transition: color 0.35s var(--ease-out-expo);
+    }
+
+    .hero-wordmark:hover {
       color: var(--accent-orange);
-      animation: bounceHint 2s infinite;
     }
 
-    @keyframes bounceHint {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
+    .hero-bottom-split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: end;
+    }
+
+    .hero-bottom-split h1 {
+      font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-black);
+    }
+
+    .hero-bottom-split h1 span {
+      color: var(--accent-orange);
+      font-weight: 300;
+    }
+
+    .hero-right-copy p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-footer-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-hairline);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 2;
     }
 
     /* ==========================================================================
-       4. AWWWARDS FEATURE SUITE: SOTD SCORE, COLOR PALETTE & TECH STACK
-       ========================================================================= */
-    .awwwards-showcase-bar {
+       4. AWWWARDS SHOWCASE BAR (Score, Palette, Typography & Tech Stack)
+       ========================================================================== */
+    .awwwards-bar {
       background: var(--bg-canvas);
       border-bottom: 1px solid var(--border-hairline);
-      padding: 32px 6%;
+      padding: 28px 5%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       align-items: center;
     }
 
-    .showcase-stat {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .showcase-stat label {
+    .aw-item label {
+      display: block;
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
+      font-size: 0.68rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
 
-    .showcase-stat .value {
-      font-size: 1.25rem;
-      font-weight: 400;
-      letter-spacing: -0.02em;
+    .aw-item .val {
+      font-size: 1.15rem;
+      font-weight: 300;
     }
 
-    .color-palette-dots {
+    .palette-swatches {
       display: flex;
       gap: 8px;
       margin-top: 4px;
     }
 
-    .color-dot {
+    .swatch {
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      border: 1px solid rgba(0,0,0,0.1);
+      border: 1px solid rgba(0, 0, 0, 0.14);
     }
 
     /* ==========================================================================
-       5. DUCKDUCKGO FEATURE SUITE: AI SEARCH & PRIVACY COMPARISON MATRIX
-       ========================================================================= */
-    .ddg-search-section {
+       5. DUCKDUCKGO-STYLE AI RESPONSIVE SEARCH ENGINE
+       ========================================================================== */
+    .search-section {
       background: var(--bg-white);
-      padding: 80px 6% 64px;
+      padding: 80px 5% 68px;
       border-bottom: 1px solid var(--border-hairline);
     }
 
-    .ddg-search-container {
-      max-width: 860px;
+    .search-inner {
+      max-width: 840px;
       margin: 0 auto;
       text-align: center;
     }
 
-    .ddg-search-container h2 {
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+    .search-inner h2 {
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
       font-weight: 200;
       letter-spacing: -0.03em;
       margin-bottom: 24px;
     }
 
-    .ai-search-box {
+    .ai-search-form {
       display: flex;
       align-items: center;
       background: var(--bg-canvas);
       border: 1.5px solid var(--text-black);
       border-radius: 999px;
-      padding: 8px 8px 8px 24px;
-      box-shadow: 0 14px 36px rgba(0,0,0,0.06);
+      padding: 7px 8px 7px 24px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.05);
       transition: all 0.3s var(--ease-out-expo);
     }
 
-    .ai-search-box:focus-within {
+    .ai-search-form:focus-within {
       border-color: var(--accent-orange);
-      box-shadow: 0 16px 44px rgba(222, 88, 51, 0.12);
+      background: #FFFFFF;
+      box-shadow: 0 18px 44px rgba(222, 88, 51, 0.12);
     }
 
-    .ai-search-box input {
+    .ai-search-form input {
       flex: 1;
       border: none;
       outline: none;
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      font-weight: 300;
       background: transparent;
+      font-family: var(--font-sans);
+      font-size: 0.98rem;
+      font-weight: 300;
       color: var(--text-black);
     }
 
-    .ai-search-box button {
+    .ai-search-form button {
       background: var(--accent-orange);
       color: #FFFFFF;
       border: none;
       border-radius: 999px;
-      padding: 12px 28px;
+      padding: 12px 26px;
       font-size: 0.85rem;
       font-weight: 400;
+      transition: background 0.25s ease;
     }
 
-    .quick-chips {
+    .ai-search-form button:hover {
+      background: var(--accent-blue);
+    }
+
+    .quick-tags {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      margin-top: 18px;
+      margin-top: 16px;
     }
 
-    .chip {
+    .q-tag {
       background: var(--bg-canvas);
       border: 1px solid var(--border-hairline);
       padding: 6px 14px;
@@ -422,12 +394,12 @@
       transition: all 0.2s ease;
     }
 
-    .chip:hover {
+    .q-tag:hover {
       border-color: var(--accent-orange);
       color: var(--accent-orange);
     }
 
-    .ai-response-box {
+    .ai-answer-card {
       display: none;
       margin-top: 24px;
       background: var(--bg-canvas);
@@ -438,142 +410,86 @@
       box-shadow: 0 20px 50px rgba(15, 41, 74, 0.08);
     }
 
-    .ai-response-box.visible {
+    .ai-answer-card.visible {
       display: block;
-      animation: fadeIn 0.4s var(--ease-out-expo);
+      animation: slideUp 0.35s var(--ease-out-expo);
     }
 
-    @keyframes fadeIn {
+    @keyframes slideUp {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* DuckDuckGo Style Comparison Matrix */
-    .comparison-section {
-      background: var(--bg-canvas);
-      padding: 80px 6%;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .comparison-wrapper {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .comparison-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .comparison-header h2 {
-      font-size: 2.2rem;
-      font-weight: 200;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-    }
-
-    .comparison-table {
-      width: 100%;
-      background: #FFFFFF;
-      border-radius: 20px;
-      border: 1px solid var(--border-hairline);
-      border-collapse: collapse;
-      overflow: hidden;
-    }
-
-    .comparison-table th, .comparison-table td {
-      padding: 18px 24px;
-      text-align: left;
-      font-size: 0.9rem;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .comparison-table th {
-      background: #0E0E10;
-      color: #FFFFFF;
-      font-weight: 400;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .comparison-table td:nth-child(2) {
-      color: var(--accent-orange);
-      font-weight: 500;
-      background: rgba(222, 88, 51, 0.03);
-    }
-
     /* ==========================================================================
-       6. EZASSIGN 5 DELIVERABLE BUTTONS (Opens Dedicated >250 Word Pages)
+       6. FIVE DELIVERABLE SERVICE BUTTONS (Opens Dedicated >250-Word Pages)
        ========================================================================== */
     .services-section {
       max-width: 1320px;
       margin: 0 auto;
-      padding: 96px 6% 48px;
+      padding: 84px 5% 40px;
     }
 
-    .section-title-bar {
+    .section-heading-bar {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       border-bottom: 1px solid var(--border-hairline);
       padding-bottom: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
-    .section-title-bar h2 {
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+    .section-heading-bar h2 {
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
       font-weight: 200;
       letter-spacing: -0.03em;
     }
 
-    .deliverables-grid {
+    .services-grid-5 {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 16px;
     }
 
-    .deliv-btn {
+    .service-tile {
       background: var(--bg-canvas);
       border: 1px solid var(--border-hairline);
       border-radius: 20px;
-      padding: 28px 20px;
+      padding: 26px 20px;
       text-align: left;
       transition: all 0.35s var(--ease-out-expo);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 180px;
+      min-height: 175px;
     }
 
-    .deliv-btn:hover {
+    .service-tile:hover {
       background: #FFFFFF;
       border-color: var(--accent-orange);
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(15, 41, 74, 0.07);
     }
 
-    .deliv-btn .num {
+    .service-tile .idx {
       font-family: var(--font-mono);
       font-size: 0.72rem;
       color: var(--accent-blue);
     }
 
-    .deliv-btn h3 {
+    .service-tile h3 {
       font-size: 1.25rem;
       font-weight: 300;
-      margin: 12px 0 8px;
       letter-spacing: -0.02em;
+      margin: 12px 0 8px;
     }
 
-    .deliv-btn p {
+    .service-tile p {
       font-size: 0.8rem;
       font-weight: 300;
       color: var(--text-muted);
     }
 
-    .deliv-btn .arrow {
+    .service-tile .go {
       margin-top: 14px;
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -581,12 +497,12 @@
     }
 
     /* ==========================================================================
-       7. BENTO GRID (Separating Writing vs 1:1 Guidance + Subjects)
+       7. ARCHITECTURAL BENTO GRID (Writing vs. 1:1 Guidance + Institutional Info)
        ========================================================================== */
     .bento-section {
       max-width: 1320px;
       margin: 0 auto;
-      padding: 40px 6% 96px;
+      padding: 40px 5% 84px;
     }
 
     .bento-grid {
@@ -599,7 +515,7 @@
       background: var(--bg-canvas);
       border: 1px solid var(--border-hairline);
       border-radius: 24px;
-      padding: 40px;
+      padding: 38px;
       transition: all 0.35s var(--ease-out-expo);
       display: flex;
       flex-direction: column;
@@ -611,13 +527,13 @@
       border-color: var(--accent-orange);
       background: #FFFFFF;
       transform: translateY(-4px);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.06);
+      box-shadow: 0 22px 46px rgba(0, 0, 0, 0.06);
     }
 
     .bento-card.dark {
       background: var(--bg-dark);
       color: #FFFFFF;
-      border-color: rgba(255,255,255,0.1);
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
     .bento-card.dark:hover {
@@ -644,17 +560,17 @@
     }
 
     .bento-card h3 {
-      font-size: 1.7rem;
+      font-size: 1.65rem;
       font-weight: 200;
       letter-spacing: -0.03em;
-      line-height: 1.2;
+      line-height: 1.22;
       margin-bottom: 14px;
     }
 
     .bento-card p {
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       font-weight: 300;
-      opacity: 0.82;
+      opacity: 0.84;
       margin-bottom: 24px;
     }
 
@@ -662,20 +578,106 @@
       font-family: var(--font-mono);
       font-size: 0.78rem;
       color: var(--accent-orange);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
 
     /* ==========================================================================
-       8. SUB-PAGE VIEWER (>250 Words Each)
+       8. DUCKDUCKGO COMPARISON TABLE & INTERACTIVE FAQ ACCORDION
+       ========================================================================== */
+    .comparison-section {
+      background: var(--bg-canvas);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 80px 5%;
+    }
+
+    .comparison-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .comparison-table {
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: 1px solid var(--border-hairline);
+      border-collapse: collapse;
+      overflow: hidden;
+      margin-top: 32px;
+    }
+
+    .comparison-table th, .comparison-table td {
+      padding: 18px 24px;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .comparison-table th {
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .comparison-table td:nth-child(2) {
+      color: var(--accent-orange);
+      font-weight: 500;
+      background: rgba(222, 88, 51, 0.03);
+    }
+
+    .faq-section {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 80px 5%;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 22px 0;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.12rem;
+      font-weight: 300;
+      color: var(--text-black);
+    }
+
+    .faq-question:hover {
+      color: var(--accent-orange);
+    }
+
+    .faq-answer {
+      display: none;
+      padding-top: 14px;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* ==========================================================================
+       9. DEDICATED SUB-PAGE VIEWER (>250 Words Each)
        ========================================================================== */
     .subpage-view {
       display: none;
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 120px 6% 96px;
-      animation: fadeIn 0.4s var(--ease-out-expo);
+      padding: 116px 5% 96px;
+      animation: slideUp 0.4s var(--ease-out-expo);
     }
 
     .subpage-view.active {
@@ -707,7 +709,7 @@
     }
 
     .subpage-header h1 {
-      font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
       font-weight: 200;
       letter-spacing: -0.04em;
       line-height: 1.12;
@@ -715,48 +717,48 @@
     }
 
     .subpage-lead {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 300;
       color: var(--text-muted);
       max-width: 820px;
-      margin-bottom: 48px;
+      margin-bottom: 44px;
     }
 
-    .subpage-content-grid {
+    .subpage-grid {
       display: grid;
       grid-template-columns: 1.4fr 0.6fr;
       gap: 48px;
       align-items: start;
     }
 
-    .article-body h2 {
-      font-size: 1.5rem;
+    .article-prose h2 {
+      font-size: 1.45rem;
       font-weight: 300;
       letter-spacing: -0.02em;
       color: var(--accent-blue);
-      margin: 32px 0 12px;
+      margin: 30px 0 12px;
     }
 
-    .article-body h2:first-child {
+    .article-prose h2:first-child {
       margin-top: 0;
     }
 
-    .article-body p {
-      font-size: 1rem;
+    .article-prose p {
+      font-size: 0.98rem;
       font-weight: 300;
       color: #2A2A2A;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       line-height: 1.75;
     }
 
-    .workflow-steps {
+    .workflow-list {
       list-style: none;
-      margin: 24px 0 32px;
+      margin: 22px 0 30px;
       border-top: 1px solid var(--border-hairline);
     }
 
-    .workflow-steps li {
-      padding: 18px 0;
+    .workflow-list li {
+      padding: 16px 0;
       border-bottom: 1px solid var(--border-hairline);
       display: grid;
       grid-template-columns: 44px 1fr;
@@ -765,7 +767,7 @@
       font-weight: 300;
     }
 
-    .workflow-steps li span {
+    .workflow-list li span {
       font-family: var(--font-mono);
       font-size: 0.78rem;
       color: var(--accent-orange);
@@ -775,19 +777,19 @@
       background: var(--bg-dark);
       color: #FFFFFF;
       border-radius: 24px;
-      padding: 36px;
+      padding: 34px;
       position: sticky;
-      top: 104px;
+      top: 100px;
     }
 
     .sidebar-cta h3 {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 200;
       margin-bottom: 12px;
     }
 
     .sidebar-cta p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 300;
       opacity: 0.75;
       margin-bottom: 24px;
@@ -797,18 +799,17 @@
       display: block;
       text-align: center;
       width: 100%;
-      padding: 14px 20px;
+      padding: 13px 20px;
       margin-bottom: 12px;
     }
 
     /* ==========================================================================
-       9. FOOTER
+       10. FOOTER
        ========================================================================== */
     footer {
       background: var(--bg-dark);
       color: #FFFFFF;
-      padding: 80px 6% 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 76px 5% 40px;
     }
 
     .footer-grid {
@@ -817,8 +818,8 @@
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr 1fr;
       gap: 40px;
-      padding-bottom: 56px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .footer-col h4 {
@@ -827,7 +828,7 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--accent-orange);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .footer-col ul {
@@ -835,9 +836,9 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 300;
-      opacity: 0.75;
+      opacity: 0.78;
     }
 
     .footer-col ul a:hover {
@@ -847,26 +848,29 @@
 
     .footer-bottom {
       max-width: 1320px;
-      margin: 32px auto 0;
+      margin: 28px auto 0;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      opacity: 0.5;
+      opacity: 0.52;
     }
 
     @media (max-width: 1024px) {
-      .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-bottom-split, .subpage-grid, .footer-grid { grid-template-columns: 1fr; }
+      .services-grid-5 { grid-template-columns: repeat(2, 1fr); }
       .col-6, .col-4 { grid-column: span 12; }
-      .awwwards-showcase-bar { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .subpage-content-grid, .footer-grid { grid-template-columns: 1fr; }
+      .awwwards-bar { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
   <!-- ========================================================================
-       HEADER (Single-Word Black Brand -> Hover Orange + Awwwards Badge)
+       HEADER
        ======================================================================== -->
   <header>
     <a href="#home" class="brand-logo" onclick="navigateTo('home'); return false;">EzAssign</a>
@@ -880,9 +884,7 @@
     </nav>
 
     <div class="header-actions">
-      <div class="awwwards-badge-mini">
-        SOTD SCORE <span>9.4/10</span>
-      </div>
+      <div class="awwwards-pill">SOTD SCORE <span>9.4/10</span></div>
       <a href="https://wa.me/919256466594?text=Hello%20EzAssign%2C%20I%20would%20like%20academic%20assistance." target="_blank" class="btn-orange">WhatsApp +91-9256466594</a>
     </div>
   </header>
@@ -892,82 +894,75 @@
        ======================================================================== -->
   <main id="home-view">
 
-    <!-- FULL-SCREEN IMMERSIVE 3D HERO (Moves When Cursor Moves Downward) -->
-    <section class="hero-fullscreen-3d" id="heroStage">
-      <div class="hero-grid-3d" id="heroGrid"></div>
+    <!-- FULL-SCREEN KINETIC EDITORIAL HERO (3D Index Removed) -->
+    <section class="hero-editorial" id="heroStage">
+      <div class="editorial-grid-bg" id="gridBg"></div>
 
-      <div class="hero-top-info">
-        <span>GLOBAL ACADEMIC ARCHITECTURE // UK & INTERNATIONAL</span>
+      <div class="hero-meta-row">
+        <span>GLOBAL ACADEMIC ARCHITECTURE // UK &amp; INTERNATIONAL</span>
         <span>7+ YEARS EXPERIENCE &bull; 8,000+ STUDENTS SERVED</span>
       </div>
 
-      <div class="hero-center-stage" id="heroCenter">
-        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px;">
-          // Awwwards SOTD &amp; DuckDuckGo Privacy Architecture
-        </div>
-        <h1>Precision academic guidance built on <span>structured execution</span>.</h1>
-        <p>
-          End-to-end custom assignment writing and personalized 1:1 student mentorship across Diploma, Undergraduate, Postgraduate, and PhD levels—engineered around your exact university rubric.
-        </p>
-        <div style="display: flex; gap: 14px;">
-          <button class="btn-orange" onclick="navigateTo('writing')">Explore Custom Writing</button>
-          <button class="btn-back" style="color: #fff; border-color: rgba(255,255,255,0.3);" onclick="navigateTo('guidance')">Book 1:1 Mentorship</button>
+      <div class="hero-display-block" id="heroDisplay">
+        <div class="hero-wordmark" onclick="navigateTo('home')">EzAssign</div>
+
+        <div class="hero-bottom-split">
+          <h1>
+            Academic precision built on <span>structured execution</span> and 1:1 clarity.
+          </h1>
+          <div class="hero-right-copy">
+            <p>
+              End-to-end custom assignment writing and personalized one-on-one student mentorship across Diploma, Undergraduate, Postgraduate, and PhD levels—tailored around your exact university rubric.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <button class="btn-orange" onclick="navigateTo('writing')">Explore Custom Writing</button>
+              <button class="btn-outline" onclick="navigateTo('guidance')">Explore 1:1 Guidance</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 3D Rotating Spatial Cube -->
-      <div class="hero-cube-container">
-        <div class="cube-f cf-front"><small>01 // Pillar</small>Custom Writing</div>
-        <div class="cube-f cf-back"><small>02 // Pillar</small>1:1 Guidance</div>
-        <div class="cube-f cf-right"><small>03 // Standard</small>UK Rubrics</div>
-        <div class="cube-f cf-left"><small>04 // Technical</small>MATLAB &amp; Data</div>
-        <div class="cube-f cf-top"><small>05 // Assurance</small>Revisions</div>
-        <div class="cube-f cf-bottom"><small>06 // Track Record</small>8,000+ Students</div>
-      </div>
-
-      <div class="hero-bottom-bar">
-        <span>MOVE CURSOR DOWNWARD TO TILT 3D STAGE</span>
-        <div class="scroll-down-hint">
-          <span>EXPLORE FEATURES</span> &darr;
-        </div>
-        <span>EZASSIGN LLP</span>
+      <div class="hero-footer-strip">
+        <span>EZASSIGN LLP // VERIFIED HIGHER-EDUCATION SUPPORT</span>
+        <span style="color: var(--accent-orange);">SCROLL DOWN TO EXPLORE &darr;</span>
+        <span>HARVARD &bull; APA &bull; IEEE &bull; OSCOLA</span>
       </div>
     </section>
 
-    <!-- AWWWARDS FEATURE BAR: SCORE, PALETTE, TECH STACK -->
-    <section class="awwwards-showcase-bar">
-      <div class="showcase-stat">
-        <label>Platform Status</label>
-        <div class="value">Site of the Day Winner</div>
+    <!-- AWWWARDS FEATURE BAR -->
+    <section class="awwwards-bar">
+      <div class="aw-item">
+        <label>Editorial Recognition</label>
+        <div class="val">Site of the Day Standard</div>
       </div>
-      <div class="showcase-stat">
-        <label>Jury Evaluation Score</label>
-        <div class="value" style="color: var(--accent-orange);">9.4 / 10.0</div>
+      <div class="aw-item">
+        <label>Student Satisfaction Index</label>
+        <div class="val" style="color: var(--accent-orange);">9.4 / 10.0</div>
       </div>
-      <div class="showcase-stat">
-        <label>Brand Color Palette</label>
-        <div class="color-palette-dots">
-          <div class="color-dot" style="background: #DE5833;" title="Signature Orange"></div>
-          <div class="color-dot" style="background: #0F294A;" title="Deep Blue"></div>
-          <div class="color-dot" style="background: #FFFFFF;" title="Crisp White"></div>
-          <div class="color-dot" style="background: #0E0E10;" title="Obsidian Dark"></div>
+      <div class="aw-item">
+        <label>Official Color System</label>
+        <div class="palette-swatches">
+          <div class="swatch" style="background: #DE5833;" title="Orange"></div>
+          <div class="swatch" style="background: #0F294A;" title="Blue"></div>
+          <div class="swatch" style="background: #FFFFFF;" title="White"></div>
+          <div class="swatch" style="background: #111111;" title="Black"></div>
         </div>
       </div>
-      <div class="showcase-stat">
-        <label>Core Tech &amp; Design Stack</label>
-        <div class="value" style="font-size: 0.85rem; font-family: var(--font-mono);">WebGL 3D, CSS Grid, GSAP, Figma UI</div>
+      <div class="aw-item">
+        <label>Academic Standards</label>
+        <div class="val" style="font-family: var(--font-mono); font-size: 0.85rem;">UK QAA &amp; Global Rubrics</div>
       </div>
     </section>
 
-    <!-- DUCKDUCKGO FEATURE SUITE: AI SEARCH & INSTANT ANSWERS -->
-    <section class="ddg-search-section">
-      <div class="ddg-search-container">
-        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; margin-bottom: 12px;">
-          DuckDuckGo-Style Zero-Tracking AI Query Assistant
+    <!-- DUCKDUCKGO-STYLE AI RESPONSIVE SEARCH -->
+    <section class="search-section">
+      <div class="search-inner">
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; margin-bottom: 10px;">
+          Zero-Tracking AI Academic Query Assistant
         </span>
-        <h2>Ask any question about your assignment, dissertation, or guidance</h2>
+        <h2>Ask anything about your assignment, dissertation, or guidance</h2>
 
-        <form class="ai-search-box" onsubmit="handleAiSearch(event)">
+        <form class="ai-search-form" onsubmit="handleAiSearch(event)">
           <input
             type="text"
             id="aiInput"
@@ -977,18 +972,18 @@
           <button type="submit">Ask EzAssign AI</button>
         </form>
 
-        <div class="quick-chips">
-          <button type="button" class="chip" onclick="runAiQuery('MATLAB & Engineering Simulations')">MATLAB & Engineering</button>
-          <button type="button" class="chip" onclick="runAiQuery('Nursing & Clinical Case Studies')">Nursing & Healthcare</button>
-          <button type="button" class="chip" onclick="runAiQuery('UK Dissertation & SPSS Analysis')">UK Dissertation & SPSS</button>
-          <button type="button" class="chip" onclick="runAiQuery('1:1 Personalized Mentorship')">1:1 Guidance</button>
-          <button type="button" class="chip" onclick="runAiQuery('Revisions & Money-Back Guarantee')">Revisions & Guarantee</button>
+        <div class="quick-tags">
+          <button type="button" class="q-tag" onclick="runAiQuery('MATLAB & Engineering Simulations')">MATLAB &amp; Engineering</button>
+          <button type="button" class="q-tag" onclick="runAiQuery('Nursing & Clinical Case Studies')">Nursing &amp; Healthcare</button>
+          <button type="button" class="q-tag" onclick="runAiQuery('UK Dissertation & SPSS Analysis')">UK Dissertation &amp; SPSS</button>
+          <button type="button" class="q-tag" onclick="runAiQuery('1:1 Personalized Mentorship')">1:1 Guidance</button>
+          <button type="button" class="q-tag" onclick="runAiQuery('Revisions & Money-Back Guarantee')">Revisions &amp; Guarantee</button>
         </div>
 
-        <div class="ai-response-box" id="aiResultBox">
+        <div class="ai-answer-card" id="aiResultBox">
           <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-orange); text-transform: uppercase; margin-bottom: 10px;">
             <span id="aiTag">EZASSIGN INSTANT ANSWER</span>
-            <span>SECURE &amp; CONFIDENTIAL</span>
+            <span>CONFIDENTIAL &amp; PRIVATE</span>
           </div>
           <div id="aiText" style="font-size: 0.98rem; font-weight: 300; margin-bottom: 20px;"></div>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
@@ -999,121 +994,66 @@
       </div>
     </section>
 
-    <!-- DUCKDUCKGO PRIVACY & FEATURES COMPARISON MATRIX -->
-    <section class="comparison-section">
-      <div class="comparison-wrapper">
-        <div class="comparison-header">
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; margin-bottom: 8px;">
-            Privacy &amp; Quality Comparison
-          </span>
-          <h2>See why students choose EzAssign over traditional platforms</h2>
-        </div>
-
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Feature / Protection</th>
-              <th>EzAssign Global</th>
-              <th>Traditional Agencies</th>
-              <th>Unvetted Freelancers</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Direct 1:1 Mentorship</strong></td>
-              <td>Yes (Dedicated specialists)</td>
-              <td>Limited / Extra cost</td>
-              <td>None</td>
-            </tr>
-            <tr>
-              <td><strong>Zero Data Tracking &amp; Confidentiality</strong></td>
-              <td>Guaranteed (DuckDuckGo Standard)</td>
-              <td>Partial tracking</td>
-              <td>No privacy controls</td>
-            </tr>
-            <tr>
-              <td><strong>Rubric-Aligned Ground-Up Drafting</strong></td>
-              <td>Yes (Strict quality audit)</td>
-              <td>Template-based</td>
-              <td>Inconsistent</td>
-            </tr>
-            <tr>
-              <td><strong>Unlimited Post-Delivery Revisions</strong></td>
-              <td>Included</td>
-              <td>Limited time window</td>
-              <td>Often unavailable</td>
-            </tr>
-            <tr>
-              <td><strong>Direct WhatsApp Coordination</strong></td>
-              <td>+91-9256466594 (24/7)</td>
-              <td>Email tickets only</td>
-              <td>Unreliable chat</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 5 DELIVERABLE BUTTONS (Opens Dedicated >250 Word Pages) -->
+    <!-- 5 DELIVERABLE BUTTONS (Each Opens a Dedicated >250-Word Page) -->
     <section class="services-section">
-      <div class="section-title-bar">
+      <div class="section-heading-bar">
         <h2>Core Deliverable Services</h2>
-        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">CLICK ANY OPTION FOR FULL DETAILS</span>
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">SELECT ANY OPTION TO OPEN FULL GUIDE</span>
       </div>
 
-      <div class="deliverables-grid">
-        <button class="deliv-btn" onclick="navigateTo('assignment')">
+      <div class="services-grid-5">
+        <button class="service-tile" onclick="navigateTo('assignment')">
           <div>
-            <span class="num">01 / SERVICE</span>
+            <span class="idx">01 / SERVICE</span>
             <h3>Assignment</h3>
             <p>Tailored essays, technical coursework, and rubric-aligned academic papers across all levels.</p>
           </div>
-          <span class="arrow">Open Page &rarr;</span>
+          <span class="go">Open Page &rarr;</span>
         </button>
 
-        <button class="deliv-btn" onclick="navigateTo('dissertation')">
+        <button class="service-tile" onclick="navigateTo('dissertation')">
           <div>
-            <span class="num">02 / SERVICE</span>
+            <span class="idx">02 / SERVICE</span>
             <h3>Dissertation</h3>
             <p>Proposals, systematic literature reviews, SPSS/R/Python analysis, and doctoral chapters.</p>
           </div>
-          <span class="arrow">Open Page &rarr;</span>
+          <span class="go">Open Page &rarr;</span>
         </button>
 
-        <button class="deliv-btn" onclick="navigateTo('presentation')">
+        <button class="service-tile" onclick="navigateTo('presentation')">
           <div>
-            <span class="num">03 / SERVICE</span>
+            <span class="idx">03 / SERVICE</span>
             <h3>Presentation</h3>
             <p>Academic pitch decks, clinical briefings, visual data storytelling, and speaker notes.</p>
           </div>
-          <span class="arrow">Open Page &rarr;</span>
+          <span class="go">Open Page &rarr;</span>
         </button>
 
-        <button class="deliv-btn" onclick="navigateTo('casestudy')">
+        <button class="service-tile" onclick="navigateTo('casestudy')">
           <div>
-            <span class="num">04 / SERVICE</span>
+            <span class="idx">04 / SERVICE</span>
             <h3>Case Study</h3>
             <p>In-depth business, corporate law, engineering, and clinical healthcare protocols.</p>
           </div>
-          <span class="arrow">Open Page &rarr;</span>
+          <span class="go">Open Page &rarr;</span>
         </button>
 
-        <button class="deliv-btn" onclick="navigateTo('quizlearning')">
+        <button class="service-tile" onclick="navigateTo('quizlearning')">
           <div>
-            <span class="num">05 / SERVICE</span>
+            <span class="idx">05 / SERVICE</span>
             <h3>Quiz &amp; Learning</h3>
             <p>Concept mastery, timed assessment preparation, and structured 1:1 analytical coaching.</p>
           </div>
-          <span class="arrow">Open Page &rarr;</span>
+          <span class="go">Open Page &rarr;</span>
         </button>
       </div>
     </section>
 
-    <!-- BENTO GRID (Separating Writing vs 1:1 Guidance + Subjects) -->
+    <!-- ARCHITECTURAL BENTO GRID (Separating Custom Writing vs. 1:1 Guidance) -->
     <section class="bento-section">
-      <div class="section-title-bar">
+      <div class="section-heading-bar">
         <h2>Institutional Pillars &amp; Domains</h2>
-        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">EXPLORE IN DEPTH</span>
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">CLICK ANY MODULE TO EXPLORE</span>
       </div>
 
       <div class="bento-grid">
@@ -1174,10 +1114,104 @@
       </div>
     </section>
 
+    <!-- DUCKDUCKGO COMPARISON MATRIX -->
+    <section class="comparison-section">
+      <div class="comparison-inner">
+        <div style="text-align: center;">
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.1em;">
+            Side-by-Side Academic Standards
+          </span>
+          <h2 style="font-size: 2.2rem; font-weight: 200; letter-spacing: -0.03em; margin-top: 8px;">
+            See how EzAssign compares
+          </h2>
+        </div>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature / Student Protection</th>
+              <th>EzAssign Global</th>
+              <th>Generic Essay Mills</th>
+              <th>Unvetted Bidding Sites</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Separate 1:1 Personalized Guidance</strong></td>
+              <td>Included (Dedicated Mentorship)</td>
+              <td>Not offered</td>
+              <td>Rare / Extra fees</td>
+            </tr>
+            <tr>
+              <td><strong>Ground-Up Rubric Alignment</strong></td>
+              <td>Built from scratch per brief</td>
+              <td>Recycled templates</td>
+              <td>Inconsistent quality</td>
+            </tr>
+            <tr>
+              <td><strong>Technical Software (MATLAB, SPSS, R, Python)</strong></td>
+              <td>Full simulation &amp; code walkthroughs</td>
+              <td>Text-only essays</td>
+              <td>Hit or miss</td>
+            </tr>
+            <tr>
+              <td><strong>Unlimited Post-Delivery Revisions</strong></td>
+              <td>Yes, until 100% aligned</td>
+              <td>24–48 hour cap</td>
+              <td>Extra charges apply</td>
+            </tr>
+            <tr>
+              <td><strong>Direct WhatsApp Desk</strong></td>
+              <td>+91-9256466594</td>
+              <td>Automated bots only</td>
+              <td>Delayed messaging</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- DUCKDUCKGO STYLE INTERACTIVE FAQ -->
+    <section class="faq-section">
+      <h2 style="font-size: 2.1rem; font-weight: 200; letter-spacing: -0.03em; margin-bottom: 24px;">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How is 1:1 Personalized Guidance different from Custom Assignment Writing?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Custom Assignment Writing provides a complete, research-backed draft built from scratch around your university brief and citation format. 1:1 Personalized Guidance is direct academic coaching where a subject specialist walks you through your rubric, research methodology, or technical software (such as MATLAB or SPSS) step-by-step so you understand every section independently.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Which academic levels and countries does EzAssign support?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          EzAssign supports Diploma, Undergraduate, Postgraduate (Master's), and PhD/Doctoral researchers worldwide, with our strongest footprint and popularity across universities in the United Kingdom.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What happens if I need edits after my assignment is delivered?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Every deliverable comes with unlimited post-delivery revisions and corrections at no extra cost until the work aligns completely with your brief and feedback, backed by a transparent money-back guarantee.
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ========================================================================
-       SUB-PAGE CONTAINER (>250 Words Each)
+       DEDICATED SUB-PAGE VIEWER (>250 Words Per Single Option)
        ======================================================================== -->
   <section id="subpage-container" class="subpage-view">
     <div class="back-bar">
@@ -1191,15 +1225,15 @@
       <p class="subpage-lead" id="subLead">Lead summary.</p>
     </div>
 
-    <div class="subpage-content-grid">
-      <div class="article-body" id="subBody"></div>
+    <div class="subpage-grid">
+      <div class="article-prose" id="subBody"></div>
 
       <aside class="sidebar-cta">
         <span class="bento-tag">DIRECT ACADEMIC DESK</span>
         <h3>Discuss Your Brief With EzAssign</h3>
         <p>Share your assignment guidelines, marking rubric, and target deadline with our coordination team for immediate support.</p>
         <a id="subWaBtn" href="https://wa.me/919256466594" target="_blank" class="btn-orange">Start on WhatsApp (+91-9256466594)</a>
-        <button class="btn-back" style="width: 100%; color: #fff; border-color: rgba(255,255,255,0.25);" onclick="navigateTo('home')">Explore Other Services</button>
+        <button class="btn-back" style="width: 100%; color: #FFFFFF; border-color: rgba(255,255,255,0.25);" onclick="navigateTo('home')">Explore Other Services</button>
       </aside>
     </div>
   </section>
@@ -1209,8 +1243,8 @@
        ======================================================================== -->
   <footer>
     <div class="footer-grid">
-      <div class="footer-brand-col">
-        <a href="#home" class="brand-logo" onclick="navigateTo('home'); return false;" style="margin-bottom: 14px; display: inline-block;">EzAssign</a>
+      <div>
+        <a href="#home" class="brand-logo" onclick="navigateTo('home'); return false;" style="margin-bottom: 14px;">EzAssign</a>
         <p style="font-size: 0.9rem; font-weight: 300; opacity: 0.75; max-width: 320px; margin-top: 10px;">
           Comprehensive academic guidance and custom assignment solutions operated by EzAssign LLP. Supporting higher-education learners across the United Kingdom and worldwide.
         </p>
@@ -1250,38 +1284,38 @@
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; 2026 EzAssign LLP. All Rights Reserved. Awwwards SOTD Winner &amp; DuckDuckGo Privacy Standard.</span>
-      <span>7+ YEARS EXPERIENCE &bull; 8,000+ STUDENTS SERVED</span>
+      <span>&copy; 2026 EzAssign LLP. All Rights Reserved.</span>
+      <span>7+ YEARS EXPERIENCE &bull; 8,000+ STUDENTS SERVED GLOBALLY</span>
     </div>
   </footer>
 
   <!-- ========================================================================
-       FULL-SCREEN 3D CURSOR & MULTI-PAGE ROUTER SCRIPT
+       CLEAN KINETIC MOTION, MULTI-PAGE ROUTER & AI SEARCH SCRIPT
        ======================================================================== -->
   <script>
-    /* Full-Screen 3D Hero Parallax: Runs when moving cursor in downward/all directions */
+    /* Smooth 2D Editorial Parallax on Cursor Move */
     const heroStage = document.getElementById('heroStage');
-    const heroGrid = document.getElementById('heroGrid');
-    const heroCenter = document.getElementById('heroCenter');
+    const gridBg = document.getElementById('gridBg');
+    const heroDisplay = document.getElementById('heroDisplay');
 
     if (heroStage) {
       heroStage.addEventListener('mousemove', (e) => {
-        const rect = heroStage.getBoundingClientRect();
         const x = (e.clientX / window.innerWidth - 0.5) * 2;
         const y = (e.clientY / window.innerHeight - 0.5) * 2;
-
-        // Downward movement accentuation (as requested: "run when we move courser in buttom direction")
-        const tiltX = -y * 22;
-        const tiltY = x * 28;
-
-        heroGrid.style.transform = `rotateX(${60 + tiltX * 0.5}deg) rotateZ(${tiltY * 0.3}deg) translateY(${y * 15}px)`;
-        heroCenter.style.transform = `translate3d(${x * 18}px, ${y * 22}px, 0) rotateX(${tiltX * 0.2}deg) rotateY(${tiltY * 0.2}deg)`;
+        gridBg.style.transform = `translate(${x * -14}px, ${y * -14}px)`;
+        heroDisplay.style.transform = `translate(${x * 8}px, ${y * 10}px)`;
       });
-
       heroStage.addEventListener('mouseleave', () => {
-        heroGrid.style.transform = 'rotateX(60deg) rotateZ(0deg) translateY(0)';
-        heroCenter.style.transform = 'translate3d(0, 0, 0)';
+        gridBg.style.transform = 'translate(0, 0)';
+        heroDisplay.style.transform = 'translate(0, 0)';
       });
+    }
+
+    /* FAQ Accordion */
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+      btn.querySelector('span:last-child').textContent = item.classList.contains('open') ? '−' : '+';
     }
 
     /* Dedicated Pages Repository (>250 Words Each) */
@@ -1297,7 +1331,7 @@
           <p>Higher-education assignments demand far more than surface-level summaries; university markers evaluate critical synthesis, theoretical framing, empirical evidence, and strict adherence to formatting standards. At EzAssign, every assignment is built from the ground up around your specific module handbook, learning outcomes, and marking rubric. Whether you are tackling a 1,500-word critical reflection or a 5,000-word technical engineering report, we map each section directly to the grade descriptors required for distinction-level work.</p>
           <p>Our academic specialists draw exclusively from peer-reviewed journals, authoritative textbooks, and verified institutional databases. Every argument is structured logically with clear thesis progression, critical counter-perspectives, and precise in-text citations formatted in Harvard, APA, MLA, IEEE, OSCOLA, or Vancouver styles according to your department rules.</p>
           <h2>5-Step Assignment Execution Workflow</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Brief &amp; Rubric Assessment:</strong> We dissect your assignment prompt, word count distribution, required theories, and submission deadline to establish a clear structural blueprint.</div></li>
             <li><span>02</span><div><strong>Subject Specialist Allocation:</strong> Your task is assigned to a dedicated domain specialist experienced in your exact academic discipline and university grading expectations.</div></li>
             <li><span>03</span><div><strong>Research &amp; Ground-Up Drafting:</strong> Using recent peer-reviewed literature and technical frameworks, we draft original, coherent, and deeply analytical content.</div></li>
@@ -1319,7 +1353,7 @@
           <p>A dissertation or doctoral thesis represents the most demanding milestone of higher education. Students frequently struggle to narrow broad research interests into defendable research questions, justify their methodological philosophy, or execute rigorous statistical and thematic analyses. EzAssign provides structured, milestone-by-milestone dissertation support designed to keep your research coherent, methodologically sound, and aligned with supervisory feedback.</p>
           <p>We support individual chapters—such as the Research Proposal, Introduction, Literature Review, Methodology, Data Analysis &amp; Findings, and Discussion—as well as complete end-to-end dissertations. For empirical studies, our specialists perform accurate statistical testing in SPSS, R, and Python, alongside structured coding and thematic synthesis for qualitative interviews and case records.</p>
           <h2>Structured Dissertation Execution Process</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Topic &amp; Research Gap Alignment:</strong> We refine your research questions, objectives, and hypotheses so they address a clear, verifiable gap in current academic literature.</div></li>
             <li><span>02</span><div><strong>Literature Synthesis Matrix:</strong> We synthesize high-impact peer-reviewed studies chronologically and thematically rather than producing disconnected summaries.</div></li>
             <li><span>03</span><div><strong>Methodology Justification:</strong> Every research design choice—from positivist vs. interpretivist paradigms to sampling frames and ethical considerations—is rigorously justified.</div></li>
@@ -1341,7 +1375,7 @@
           <p>University presentations assess two distinct competencies: the depth of your underlying academic research and your ability to communicate complex findings concisely under strict time limits. Cluttered slides filled with walls of text routinely lose marks, while overly simplistic slides fail to demonstrate scholarly rigor. EzAssign bridges this divide by crafting clean, visually structured presentation decks accompanied by thorough speaker notes.</p>
           <p>Whether you are defending a business strategy pitch, presenting a clinical nursing care protocol, demonstrating an engineering system architecture, or delivering a postgraduate research seminar, we balance concise visual cues on each slide with detailed verbal scripts so you can present with complete confidence.</p>
           <h2>How We Build Your Presentation Deliverable</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Time-Limit &amp; Slide Structuring:</strong> We map out the exact slide count to match your allotted presentation duration (e.g., 10-minute pitch vs. 25-minute seminar defense).</div></li>
             <li><span>02</span><div><strong>Academic Content Distillation:</strong> Key arguments, theoretical models, and empirical findings are distilled into sharp bullet points, diagrams, and comparison tables.</div></li>
             <li><span>03</span><div><strong>Clean Editorial Slide Design:</strong> Professional layouts with legible typography, structured visual hierarchy, and properly cited figures and charts.</div></li>
@@ -1363,7 +1397,7 @@
           <p>Case study assignments test your ability to bridge classroom theory with real-world complexity. Rather than merely retelling the facts of a scenario, assessors expect you to diagnose root causes, evaluate competing strategic or clinical options, and justify actionable recommendations using credible evidence. EzAssign specializes in multi-disciplinary case studies spanning strategic management, corporate and international law, software architecture, and clinical healthcare.</p>
           <p>In healthcare and nursing sciences, our specialists handle intricate clinical briefings, patient care plans, pharmacology evaluations, and specialized surgical protocols—including complex clinical pathways such as kidney transplant care and post-operative management. In business and law, we apply frameworks such as SWOT, PESTLE, Porter's Five Forces, financial ratio modeling, and IRAC legal reasoning.</p>
           <h2>Our 5-Stage Case Study Methodology</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Scenario &amp; Stakeholder Mapping:</strong> We extract key facts, constraints, timelines, and stakeholder priorities from your case dossier.</div></li>
             <li><span>02</span><div><strong>Framework &amp; Protocol Selection:</strong> We select the exact analytical frameworks, legal statutes, or clinical guidelines specified in your module rubric.</div></li>
             <li><span>03</span><div><strong>Root-Cause &amp; Evidence Evaluation:</strong> Each issue is evaluated critically using peer-reviewed studies, industry data, or clinical best-practice standards.</div></li>
@@ -1385,7 +1419,7 @@
           <p>Many higher-education students understand the broad outline of their coursework but hit roadblocks when faced with quantitative problem sets, coding logic, MATLAB simulations, statistical interpretation, or timed module quizzes. EzAssign's Quiz &amp; Learning support focuses on clarity, structured reasoning, and active comprehension so you can approach assessments with genuine confidence.</p>
           <p>Rather than letting you struggle through dense lecture slides alone, our subject mentors break complex topics down into intuitive, step-by-step explanations. We walk through sample questions, explain why specific formulas or theoretical models apply, and highlight common pitfalls that cost students marks in university assessments.</p>
           <h2>How Our Learning &amp; Quiz Support Works</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Syllabus &amp; Topic Diagnostic:</strong> Share your module syllabus, lecture topics, or practice questions so we can pinpoint the exact concepts requiring focus.</div></li>
             <li><span>02</span><div><strong>Step-by-Step Worked Explanations:</strong> We provide clear, annotated walkthroughs of analytical problems, code blocks, or theoretical frameworks.</div></li>
             <li><span>03</span><div><strong>1:1 Interactive Clarification:</strong> Ask direct follow-up questions during personalized guidance sessions until every step of the logic makes complete sense.</div></li>
@@ -1407,7 +1441,7 @@
           <p>EzAssign operates as a dedicated academic execution partner for students navigating demanding coursework loads, unfamiliar university rubrics, and tight submission schedules. Every project under our Custom Assignment Writing pillar is developed exclusively from scratch based on your institutional guidelines, word count targets, and specific grading criteria.</p>
           <p>We cover the full spectrum of academic writing and technical execution: analytical essays, business reports, legal case notes, clinical nursing care plans, software engineering documentation, and complex MATLAB simulations and mathematical modeling. Every deliverable is formatted to match your required referencing style—including Harvard, APA, MLA, IEEE, OSCOLA, and Vancouver.</p>
           <h2>Quality-Controlled Execution Pipeline</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Comprehensive Brief Evaluation:</strong> We verify every rubric criterion, learning outcome, and formatting requirement before drafting begins.</div></li>
             <li><span>02</span><div><strong>Domain-Matched Execution:</strong> Your task is handled by a specialist with proven academic expertise in your exact subject area.</div></li>
             <li><span>03</span><div><strong>Peer-Reviewed Research Depth:</strong> Arguments are anchored in credible academic journals, empirical datasets, and authoritative textbooks.</div></li>
@@ -1429,7 +1463,7 @@
           <p>Many university students—especially international learners adapting to UK and global higher-education standards—understand their core subject matter but struggle with academic structuring, critical evaluation, or specialized software environments. EzAssign's 1:1 Personalized Guidance pillar is dedicated entirely to direct mentorship, helping you understand the "why" and "how" behind every section of your coursework.</p>
           <p>Rather than leaving you to guess what university markers are looking for, your mentor walks you through your assignment brief line by line, showing you how to translate learning outcomes into a persuasive academic argument or functional technical model.</p>
           <h2>What Happens in a 1:1 Guidance Workflow</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Rubric &amp; Brief Deconstruction:</strong> Together with your mentor, you break down the marking scheme to see exactly where high-band marks are awarded.</div></li>
             <li><span>02</span><div><strong>Structural Outlining:</strong> You build a section-by-section blueprint covering thesis statements, literature synthesis, and critical counter-arguments.</div></li>
             <li><span>03</span><div><strong>Technical &amp; Software Walkthroughs:</strong> Step-by-step guidance on MATLAB simulations, Python/R scripts, SPSS statistical tests, or engineering modeling logic.</div></li>
@@ -1450,7 +1484,7 @@
           <h2>Virtually Every Major Higher-Education Discipline</h2>
           <p>Modern university degrees increasingly blend traditional theory with quantitative data analysis, clinical protocols, and computational tools. EzAssign maintains broad disciplinary coverage so students across diverse faculties receive accurate, domain-authentic academic guidance and assignment execution.</p>
           <h2>Core Subject Pillars</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Humanities &amp; Media:</strong> Critical essays, journalism, media and communication studies, English literature, sociology, history, and cultural analysis.</div></li>
             <li><span>02</span><div><strong>Technology &amp; Engineering:</strong> Cloud computing, software engineering, artificial intelligence, machine learning, data science, computer networking, and critical MATLAB simulations and modeling.</div></li>
             <li><span>03</span><div><strong>Healthcare, Nursing &amp; Medical Sciences:</strong> Clinical healthcare briefings, evidence-based nursing care plans, public health policy, pharmacology, and specialized medical case studies—including complex surgical and clinical protocols such as kidney transplant management.</div></li>
@@ -1471,7 +1505,7 @@
           <h2>Tailored to Every Tier of Higher Education</h2>
           <p>Academic expectations evolve sharply as you progress from foundational diplomas to doctoral research. A first-year undergraduate essay requires clear descriptive and analytical structure, whereas a Master's dissertation or PhD chapter demands original theoretical synthesis and methodological rigor. EzAssign calibrates every deliverable to match the exact academic level of your qualification.</p>
           <h2>Qualifications We Support</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Diploma &amp; Foundation Programmes:</strong> Structured coursework, practical reports, and foundational academic writing designed to build strong study habits.</div></li>
             <li><span>02</span><div><strong>Undergraduate (Bachelor's) Degrees:</strong> Module essays, lab reports, group presentation decks, case studies, and final-year honors dissertations.</div></li>
             <li><span>03</span><div><strong>Postgraduate (Master's) Programmes:</strong> Advanced critical reviews, MBA strategic reports, empirical data projects, and Master's theses.</div></li>
@@ -1492,7 +1526,7 @@
           <p>Choosing an academic support partner requires complete trust in quality, confidentiality, and reliability. Operated by a dedicated leadership team under EzAssign LLP, our platform has spent more than seven years helping higher-education students navigate evolving university standards, complex technical briefs, and strict submission deadlines.</p>
           <p>With over 8,000 students served worldwide and an active, verified digital presence across our official web platform, WhatsApp Business desk, Instagram, LinkedIn, and Linktree, EzAssign stands behind every single deliverable with clear student-first policies.</p>
           <h2>Our Core Student Protection Commitments</h2>
-          <ul class="workflow-steps">
+          <ul class="workflow-list">
             <li><span>01</span><div><strong>Uncompromised Academic Quality:</strong> Every assignment is crafted from scratch to meet rigorous academic benchmarks, adhering strictly to your brief, word count, and required citation style.</div></li>
             <li><span>02</span><div><strong>Unlimited Revisions &amp; Corrections:</strong> Even after final delivery, you receive unlimited edits, refinements, or adjustments until the work aligns completely with your expectations and feedback.</div></li>
             <li><span>03</span><div><strong>Transparent Money-Back Guarantee:</strong> We offer a clear money-back guarantee in the rare event of a verified failure, subject to transparent terms and conditions.</div></li>
